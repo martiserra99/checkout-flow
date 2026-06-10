@@ -72,7 +72,7 @@ export const flow: Flow<Schema> = [
             country: [values.country, []],
           }),
 
-          render: ({ fields, values, params, onNext, onJump }) => ({
+          render: ({ fields, values, params, next, jump }) => ({
             step: 0,
             form: (
               <Form
@@ -170,8 +170,8 @@ export const flow: Flow<Schema> = [
                   next: "Continue",
                   edit: "Save & review",
                 }}
-                onNext={onNext}
-                onJump={onJump}
+                onNext={next}
+                onJump={jump}
                 prevId={null}
                 values={values}
                 onValuesChange={params.onValuesChange}
@@ -191,7 +191,7 @@ export const flow: Flow<Schema> = [
           fields: (values) => ({
             delivery: [values.delivery, []],
           }),
-          render: ({ fields, values, params, onNext, onJump }) => ({
+          render: ({ fields, values, params, next, jump }) => ({
             step: 1,
             form: (
               <Form
@@ -217,8 +217,8 @@ export const flow: Flow<Schema> = [
                   next: "Continue",
                   edit: "Save & review",
                 }}
-                onNext={onNext}
-                onJump={onJump}
+                onNext={next}
+                onJump={jump}
                 prevId="shipping"
                 values={values}
                 onValuesChange={params.onValuesChange}
@@ -241,7 +241,7 @@ export const flow: Flow<Schema> = [
             expiryDate: [values.expiryDate, []],
             cvv: [values.cvv, []],
           }),
-          render: ({ fields, values, params, onNext, onJump }) => ({
+          render: ({ fields, values, params, next, jump }) => ({
             step: 2,
             form: (
               <Form
@@ -312,8 +312,8 @@ export const flow: Flow<Schema> = [
                   next: "Review order",
                   edit: "Save & review",
                 }}
-                onNext={onNext}
-                onJump={onJump}
+                onNext={next}
+                onJump={jump}
                 prevId="delivery"
                 values={values}
                 onValuesChange={params.onValuesChange}
@@ -336,7 +336,7 @@ export const flow: Flow<Schema> = [
       at: {
         form: {
           fields: () => ({}),
-          render: ({ values, params, onNext, onJump }) => ({
+          render: ({ values, params, next, jump }) => ({
             step: 3,
             form: (
               <Review
@@ -378,8 +378,8 @@ export const flow: Flow<Schema> = [
                   },
                 ]}
                 button="Place order"
-                onNext={onNext}
-                onJump={onJump}
+                onNext={next}
+                onJump={jump}
                 status={params.status}
               />
             ),

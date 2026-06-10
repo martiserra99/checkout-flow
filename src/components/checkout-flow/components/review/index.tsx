@@ -1,4 +1,4 @@
-import type { OnNext, OnJump } from "@formity/react";
+import type { Next, Jump } from "@formity/react";
 import type { FormStatus } from "../../types/status";
 
 import { ArrowRightIcon } from "lucide-react";
@@ -12,8 +12,8 @@ interface ReviewProps {
   message: string;
   content: Item[];
   button: string;
-  onNext: OnNext<Record<never, never>>;
-  onJump: OnJump<Record<never, never>>;
+  onNext: Next<Record<never, never>>;
+  onJump: Jump<Record<never, never>>;
   status: FormStatus;
 }
 

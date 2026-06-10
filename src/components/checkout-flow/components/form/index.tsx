@@ -1,5 +1,5 @@
 import type { FieldValues, DefaultValues, Resolver } from "react-hook-form";
-import type { OnNext, OnJump } from "@formity/react";
+import type { Next, Jump } from "@formity/react";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useForm, FormProvider } from "react-hook-form";
@@ -20,8 +20,8 @@ interface FormProps<T extends FieldValues, U extends T> {
     next: string;
     edit: string;
   };
-  onNext: OnNext<T>;
-  onJump: OnJump<T>;
+  onNext: Next<T>;
+  onJump: Jump<T>;
   prevId: string | null;
   values: U;
   onValuesChange: (values: U) => void;
