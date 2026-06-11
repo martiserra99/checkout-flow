@@ -12,8 +12,8 @@ interface ReviewProps {
   message: string;
   content: Item[];
   button: string;
-  onNext: Next<Record<never, never>>;
-  onJump: Jump<Record<never, never>>;
+  next: Next<Record<never, never>>;
+  jump: Jump<Record<never, never>>;
   status: FormStatus;
 }
 
@@ -22,8 +22,8 @@ export function Review({
   message,
   content,
   button,
-  onNext,
-  onJump,
+  next,
+  jump,
   status,
 }: ReviewProps) {
   return (
@@ -36,11 +36,7 @@ export function Review({
           </div>
           <div className="flex max-w-md flex-col gap-3">
             {content.map((item, i) => (
-              <ItemView
-                key={i}
-                item={item}
-                onEdit={(edit) => onJump(edit, {})}
-              />
+              <ItemView key={i} item={item} onEdit={(edit) => jump(edit, {})} />
             ))}
           </div>
         </div>
@@ -50,7 +46,7 @@ export function Review({
           variant="dark"
           disabled={status.submitting}
           className="ml-auto"
-          onClick={() => onNext({})}
+          onClick={() => next({})}
         >
           {status.submitting ? "Submitting..." : button}
           <ArrowRightIcon className="size-3.5" />

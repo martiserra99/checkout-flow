@@ -170,9 +170,9 @@ export const flow: Flow<Schema> = [
                   next: "Continue",
                   edit: "Save & review",
                 }}
-                onNext={next}
-                onJump={jump}
-                prevId={null}
+                next={next}
+                jump={jump}
+                prev={null}
                 values={values}
                 onValuesChange={params.onValuesChange}
                 edit={values.edit}
@@ -217,9 +217,9 @@ export const flow: Flow<Schema> = [
                   next: "Continue",
                   edit: "Save & review",
                 }}
-                onNext={next}
-                onJump={jump}
-                prevId="shipping"
+                next={next}
+                jump={jump}
+                prev="shipping"
                 values={values}
                 onValuesChange={params.onValuesChange}
                 edit={values.edit}
@@ -312,9 +312,9 @@ export const flow: Flow<Schema> = [
                   next: "Review order",
                   edit: "Save & review",
                 }}
-                onNext={next}
-                onJump={jump}
-                prevId="delivery"
+                next={next}
+                jump={jump}
+                prev="delivery"
                 values={values}
                 onValuesChange={params.onValuesChange}
                 edit={values.edit}
@@ -378,8 +378,8 @@ export const flow: Flow<Schema> = [
                   },
                 ]}
                 button="Place order"
-                onNext={next}
-                onJump={jump}
+                next={next}
+                jump={jump}
                 status={params.status}
               />
             ),

@@ -20,9 +20,9 @@ interface FormProps<T extends FieldValues, U extends T> {
     next: string;
     edit: string;
   };
-  onNext: Next<T>;
-  onJump: Jump<T>;
-  prevId: string | null;
+  next: Next<T>;
+  jump: Jump<T>;
+  prev: string | null;
   values: U;
   onValuesChange: (values: U) => void;
   edit: boolean;
@@ -35,9 +35,9 @@ export function Form<T extends FieldValues, U extends T>({
   message,
   content,
   buttons,
-  onNext,
-  onJump,
-  prevId,
+  next,
+  jump,
+  prev,
   values,
   onValuesChange,
   edit,
@@ -61,8 +61,8 @@ export function Form<T extends FieldValues, U extends T>({
       autoComplete="off"
       className="@container flex flex-1 flex-col overflow-hidden"
       onSubmit={form.handleSubmit((fields) => {
-        if (edit) onJump("review", fields);
-        else onNext(fields);
+        if (edit) jump("review", fields);
+        else next(fields);
       })}
     >
       <FormProvider {...form}>
@@ -85,7 +85,7 @@ export function Form<T extends FieldValues, U extends T>({
           {buttons.back && !edit && (
             <button
               type="button"
-              onClick={() => onJump(prevId, form.getValues())}
+              onClick={() => jump(prev, form.getValues())}
               className="inline-flex items-center gap-2 rounded text-sm font-medium text-gray-400 transition-colors outline-none hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-gray-400/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-gray-400"
             >
               <ArrowLeftIcon className="size-3.5" /> {buttons.back}
