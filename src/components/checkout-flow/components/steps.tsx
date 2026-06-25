@@ -6,7 +6,7 @@ const labelVariants = cva("text-xs font-semibold", {
     state: {
       active: "text-gray-950",
       done: "text-emerald-500",
-      pending: "text-gray-300",
+      pending: "text-gray-400",
     },
   },
 });
